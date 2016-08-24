@@ -13,7 +13,10 @@ import java.io.PrintWriter;
 public class BackgroundRenderingServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        // Set by CookieServlet. Call cookie.html?myColor=green to set cookie to green
         String c = getCookieValue(req, "myColor", "red");
+
+        // Just for show, not actually present.
         String f = getCookieValue(req, "myFontSize", "12pt");
         String l = getCookieValue(req, "myLanguage", "en");
 

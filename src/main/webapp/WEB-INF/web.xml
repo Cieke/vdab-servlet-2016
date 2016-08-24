@@ -7,7 +7,7 @@
 
     <servlet>
         <servlet-name>joepie</servlet-name>
-        <servlet-class>com.realdolmen.servlets.DualServlet</servlet-class>
+        <servlet-class>com.realdolmen.servlets.CookieServlet</servlet-class>
 
         <init-param>
             <param-name>maxSize</param-name>
@@ -19,6 +19,10 @@
         <servlet-name>joepie</servlet-name>
         <url-pattern>/dummy.html</url-pattern>
     </servlet-mapping>
+
+    <session-config>
+        <session-timeout>45</session-timeout>
+    </session-config>
 
 
 </web-app>

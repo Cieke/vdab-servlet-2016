@@ -1,5 +1,7 @@
 package com.realdolmen.servlets;
 
+import com.realdolmen.dao.PersonDao;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -18,9 +20,10 @@ public class RegisterServlet extends HttpServlet {
 
         Person p = new Person(firstName, lastName, age, gender);
         System.out.println(p);
-        resp.sendRedirect("/index.html");
-        // Save in the database for example
-        // em.persist(p);
+        resp.sendRedirect("/people");
+
+
+        PersonDao.getInstance().save(p);
 
     }
 }

@@ -1,9 +1,18 @@
 package com.realdolmen.servlets;
 
+import javax.persistence.*;
+
+@Entity
 public class Person {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Integer id;
+
     private String firstName;
     private String lastName;
     private int age;
+
+    @Enumerated(EnumType.STRING)
     private Gender gender;
 
     public Person(String firstName, String lastName, int age, Gender gender) {

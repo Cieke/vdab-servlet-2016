@@ -18,6 +18,7 @@
         </form>
 
         <%-- New way --%>
+        <%--<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>--%>
         <c:choose>
             <c:when test="${empty myTodoList}">
                 <p>Your list is empty</p>
@@ -33,7 +34,7 @@
 
         <%-- Old way --%>
         <%
-            List<String> myTodoList = (List<String>)request.getSession().getAttribute("myTodoList");
+            List<String> myTodoList = (List<String>)session.getAttribute("myTodoList");
             if(myTodoList == null || myTodoList.isEmpty()) {
                 out.println("<p>Your list is empty</p>");
             } else {

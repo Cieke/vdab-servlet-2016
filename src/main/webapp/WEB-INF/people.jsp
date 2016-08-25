@@ -16,9 +16,9 @@
         <link rel="stylesheet" href="bootstrap-3.3.7-dist/css/bootstrap.css"/>
     </head>
     <body>
-
+    <div class="container">
     <h1>People list</h1>
-    List from the database
+
         <%--TODO: show list of people using EL and JSTL and MVC--%>
 
     <c:choose>
@@ -26,21 +26,42 @@
             <p>No people in the database</p>
         </c:when>
         <c:otherwise>
-            <ol>
-                <c:forEach items="${people}" var="person">
-                    <li>
-                        ${person.firstName}
-                        ${person.lastName}
-                        ${person.age}
-                        ${person.gender}
-                    </li>
-                </c:forEach>
-            </ol>
+
+
+
+                    <table class="table table-hover" border-spacing="10px">
+                       <tr>
+                           <th>ID</th>
+                           <th>Firstname</th>
+                           <th>Lastname</th>
+                           <th>gender</th>
+                           <th>Age</th>
+                           <th></th>
+                       </tr>
+            <c:forEach items="${people}" var="person">
+                       <tr>
+                           <td>${person.id}</td>
+                           <td>${person.firstName}</td>
+                           <td>${person.lastName}</td>
+                           <td>${person.gender}</td>
+                           <td>${person.age}</td>
+                           <td><a href="/deleteperson?id=${person.id}" class="btn btn-xs btn-danger">Remove</a> </td>
+                       </tr>
+
+            </c:forEach>
+                    </table>
+
+
         </c:otherwise>
     </c:choose>
 
 
     <a href="/register.html"  class="btn btn-primary">Add Person</a>
 
+        <!--verwijderen van record: nummer van record nodig-->
+
+
+
+    </div>
     </body>
 </html>

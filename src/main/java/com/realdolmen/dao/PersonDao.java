@@ -36,4 +36,11 @@ public class PersonDao {
         entityManager.persist(person);
         entityManager.getTransaction().commit();
     }
+
+    public void remove(int id){
+        entityManager.getTransaction().begin();
+        Person p = entityManager.getReference(Person.class, id);
+        entityManager.remove(p);
+        entityManager.getTransaction().commit();
+    }
 }

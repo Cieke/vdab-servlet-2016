@@ -15,6 +15,12 @@ public class Person {
     @Enumerated(EnumType.STRING)
     private Gender gender;
 
+    protected Person(){}
+
+    public Integer getId() {
+        return id;
+    }
+
     public Person(String firstName, String lastName, int age, Gender gender) {
         this.firstName = firstName;
         this.lastName = lastName;

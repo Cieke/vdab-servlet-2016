@@ -22,8 +22,11 @@ public class RegisterServlet extends HttpServlet {
         System.out.println(p);
 
         // TODO: save into the database
+        PersonDao dao = PersonDao.getInstance();
+        dao.save(p);
 
         // TODO: redirect to list of persons page
+        resp.sendRedirect("/people");
 
     }
 }
